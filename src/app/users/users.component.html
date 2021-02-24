@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul  class="list-group">
+                <li class="list-group-item clickable" (click)="onGetProducts()">Products</li>
+                <li class="list-group-item clickable" (click)="onGetCustomers()">Customers</li>
+            </ul>
+        </div>
+        <div *ngIf="products" class="col-md-9"><br>
+            <h1>Products</h1><br>
+            <div *ngFor="let p of products._embedded.products" class="container">
+            <div class="row">
+               <div class="col-md-3"><h6>{{p.name}}</h6></div>
+               <div class="col-md-3">{{p.price}}</div>
+               <div class="col-md-3">{{p.quantity}}</div>
+               <div class="col-md-3"><button class="btn btn-danger">Delete</button></div>
+            </div><br>
+        </div>
+
+        </div>
+
+        <div *ngIf="customers" class="col-md-9"><br>
+            <h1>Customers</h1><br>
+            <div *ngFor="let c of customers._embedded.customers" class="container">
+            <div class="row">
+               <div class="col-md-3"><h6>{{c.name}}</h6></div>
+               <div class="col-md-3">h{{c.email}}</div>
+               <div class="col-md-3"></div>
+               <div class="col-md-3"><button class="btn btn-danger">Delete</button></div>
+            </div><br>
+        </div>
+
+        </div>
+
+    </div>
+
+</div>

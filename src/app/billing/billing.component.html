@@ -1,0 +1,29 @@
+<div class="container">
+    <ul *ngIf="bills" class="list-group">
+        <li *ngFor="let b of bills._embedded.bills" (click)="onGetBill(b)" class="list-group-item text-center clickable " >{{b.billingDate}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{"Bill  :"+b.id}}</li>
+        <div *ngIf="bill" class="container">
+            <ul *ngIf="productItems" class="list-group"></ul>
+            <li >{{bill.customer.name}}</li>
+            <table *ngIf="productItems" class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantité</th>
+                    <th scope="col">Prix unité</th>
+                    <th scope="col">Prix total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of productItems" >
+                    <td>{{p.product.name}}</td>
+                    <td>{{p.product.quantity}}</td>
+                    <td>{{p.product.price}}&nbsp;&nbsp;DH</td>
+                    <td>{{p.product.price*p.product.quantity}}&nbsp;&nbsp;DH</td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+              
+        </div>
+    </ul>
+</div>
